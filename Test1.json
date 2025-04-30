@@ -1,0 +1,785 @@
+[
+    {
+        "BUSINESS_NUMBER": 101897735,
+        "PERIOD_ID": 85,
+        "PROGRAM_ID": "NV",
+        "ACCOUNT_SEQ_NUM": 5,
+        "TAX_YEAR_SDT": "2003-10-28",
+        "TAX_YEAR_EDT": "2008-03-04",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 9892879,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 6027068,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 3709220,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 4149640,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 9707838,
+                    "EVENT_TCD": 7,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 7411231,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 7587137,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 2875189,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0007": {
+                "1": {
+                    "LINE_AMOUNT": 4034866,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 0
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 334673603,
+        "PERIOD_ID": 34,
+        "PROGRAM_ID": "MU",
+        "ACCOUNT_SEQ_NUM": 8,
+        "TAX_YEAR_SDT": "2017-10-19",
+        "TAX_YEAR_EDT": "2018-05-19",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 1533298,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 3386160,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 8014598,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 9537583,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 2263614,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 2
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 452264300,
+        "PERIOD_ID": 66,
+        "PROGRAM_ID": "SC",
+        "ACCOUNT_SEQ_NUM": 9,
+        "TAX_YEAR_SDT": "2001-11-17",
+        "TAX_YEAR_EDT": "2007-12-19",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 3364014,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 1732364,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 5322039,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 1198665,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 5629199,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 4582318,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 2501000,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 868402980,
+        "PERIOD_ID": 41,
+        "PROGRAM_ID": "DJ",
+        "ACCOUNT_SEQ_NUM": 3,
+        "TAX_YEAR_SDT": "2011-10-27",
+        "TAX_YEAR_EDT": "2007-08-04",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 3524133,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 5116717,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 3628024,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 3762708,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 5196221,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 9722543,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 3975751,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 9284642,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 1873042,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 7944946,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 1935108,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 7049540,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 4924504,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0007": {
+                "1": {
+                    "LINE_AMOUNT": 1272380,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 7649733,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0008": {
+                "1": {
+                    "LINE_AMOUNT": 6279569,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 3
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 622814153,
+        "PERIOD_ID": 26,
+        "PROGRAM_ID": "GL",
+        "ACCOUNT_SEQ_NUM": 2,
+        "TAX_YEAR_SDT": "2004-04-04",
+        "TAX_YEAR_EDT": "2004-10-28",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 7030295,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 8578683,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 5532616,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 9313337,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 7383888,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 5456011,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 5288964,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 4400625,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 9566425,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 2031801,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 2
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 360693324,
+        "PERIOD_ID": 64,
+        "PROGRAM_ID": "NU",
+        "ACCOUNT_SEQ_NUM": 8,
+        "TAX_YEAR_SDT": "2019-07-21",
+        "TAX_YEAR_EDT": "2010-02-13",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 1136235,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 1080261,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 8574910,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 4928033,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 9076076,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 8336567,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 2736592,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 7308719,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 7667855,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 1529783,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 8949630,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 7559520,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0007": {
+                "1": {
+                    "LINE_AMOUNT": 4565027,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0008": {
+                "1": {
+                    "LINE_AMOUNT": 6662041,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 1334492,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 3
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 708487040,
+        "PERIOD_ID": 17,
+        "PROGRAM_ID": "GI",
+        "ACCOUNT_SEQ_NUM": 5,
+        "TAX_YEAR_SDT": "2005-05-16",
+        "TAX_YEAR_EDT": "2023-03-16",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 7846973,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 6478118,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 3334463,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 7785871,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 3728225,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 4041842,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 1500544,
+                    "EVENT_TCD": 7,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 5224291,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 8868580,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 6457354,
+                    "EVENT_TCD": 7,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 2345080,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 9515546,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0007": {
+                "1": {
+                    "LINE_AMOUNT": 2087723,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 1514818,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0008": {
+                "1": {
+                    "LINE_AMOUNT": 8007887,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 1
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 764598998,
+        "PERIOD_ID": 44,
+        "PROGRAM_ID": "RB",
+        "ACCOUNT_SEQ_NUM": 2,
+        "TAX_YEAR_SDT": "2020-05-16",
+        "TAX_YEAR_EDT": "2011-12-24",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 5908454,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 2478338,
+                    "EVENT_TCD": 7,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 5606324,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 0
+                },
+                "2": {
+                    "LINE_AMOUNT": 7712670,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 8572414,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 6539246,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 6815094,
+                    "EVENT_TCD": 1,
+                    "LINE_ROW_NUM": 2
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 362516772,
+        "PERIOD_ID": 84,
+        "PROGRAM_ID": "OB",
+        "ACCOUNT_SEQ_NUM": 1,
+        "TAX_YEAR_SDT": "2023-01-13",
+        "TAX_YEAR_EDT": "2008-02-20",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 7249202,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 3356955,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 1324493,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 2545839,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 5990370,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 2438141,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 2
+                },
+                "2": {
+                    "LINE_AMOUNT": 8758353,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 3713508,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 3171949,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0007": {
+                "1": {
+                    "LINE_AMOUNT": 2736537,
+                    "EVENT_TCD": 7,
+                    "LINE_ROW_NUM": 2
+                }
+            }
+        }
+    },
+    {
+        "BUSINESS_NUMBER": 782540838,
+        "PERIOD_ID": 12,
+        "PROGRAM_ID": "SL",
+        "ACCOUNT_SEQ_NUM": 3,
+        "TAX_YEAR_SDT": "2019-10-31",
+        "TAX_YEAR_EDT": "2015-04-30",
+        "DATA": {
+            "CODE_0000": {
+                "1": {
+                    "LINE_AMOUNT": 6147289,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 8342005,
+                    "EVENT_TCD": 6,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0001": {
+                "1": {
+                    "LINE_AMOUNT": 5330021,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0002": {
+                "1": {
+                    "LINE_AMOUNT": 5909954,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 3
+                }
+            },
+            "CODE_0003": {
+                "1": {
+                    "LINE_AMOUNT": 1854086,
+                    "EVENT_TCD": 9,
+                    "LINE_ROW_NUM": 0
+                }
+            },
+            "CODE_0004": {
+                "1": {
+                    "LINE_AMOUNT": 8917321,
+                    "EVENT_TCD": 5,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0005": {
+                "1": {
+                    "LINE_AMOUNT": 6766917,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 3
+                },
+                "2": {
+                    "LINE_AMOUNT": 3774872,
+                    "EVENT_TCD": 3,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0006": {
+                "1": {
+                    "LINE_AMOUNT": 5890792,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0007": {
+                "1": {
+                    "LINE_AMOUNT": 1840460,
+                    "EVENT_TCD": 8,
+                    "LINE_ROW_NUM": 1
+                },
+                "2": {
+                    "LINE_AMOUNT": 4360033,
+                    "EVENT_TCD": 0,
+                    "LINE_ROW_NUM": 2
+                }
+            },
+            "CODE_0008": {
+                "1": {
+                    "LINE_AMOUNT": 6999201,
+                    "EVENT_TCD": 4,
+                    "LINE_ROW_NUM": 1
+                }
+            },
+            "CODE_0009": {
+                "1": {
+                    "LINE_AMOUNT": 9747347,
+                    "EVENT_TCD": 2,
+                    "LINE_ROW_NUM": 0
+                }
+            }
+        }
+    }
+]
