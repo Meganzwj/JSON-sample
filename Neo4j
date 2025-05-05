@@ -1,49 +1,30 @@
-{
-  "people": [
-    {
-      "SIN": "111111111",
-      "Name": "Alice Smith",
-      "DOB": "1980-05-10",
-      "Address": "123 Maple St, Toronto, ON"
-    }
-  ],
-  "businesses": [
-    {
-      "BN": "123456789",
-      "LegalName": "AS Tech Solutions Inc.",
-      "IncorporationDate": "2015-06-01",
-      "Address": "500 King St W, Toronto, ON",
-      "T2Return": {
-        "TaxYear": 2023,
-        "Lines": {
-          "101": 350000,    // Gross revenue
-          "300": 275000,    // Net income/loss before taxes
-          "360": 125000,    // Taxable income
-          "700": 18000      // Federal tax payable
-        }
-      },
-      "ProgramAccounts": [
-        {
-          "Program": "RC",
-          "AccountNumber": "123456789RC0001",
-          "Status": "Active",
-          "RegisteredDate": "2015-06-01"
-        },
-        {
-          "Program": "RP",
-          "AccountNumber": "123456789RP0001",
-          "Status": "Active",
-          "RegisteredDate": "2016-01-01"
-        }
-      ]
-    }
-  ],
-  "ownership": [
-    {
-      "SIN": "111111111",
-      "BN": "123456789",
-      "Role": "Director",
-      "Since": "2015-06-01"
-    }
-  ]
-}
+CALL apoc.load.json("https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/data.json") YIELD value
+
+UNWIND value.people AS p
+MERGE (person:Person {SIN: p.SIN})
+SET person.name = p.Name, person.dob = date(p.DOB), person.address = p.Address;
+
+UNWIND value.businesses AS b
+MERGE (biz:Business {BN: b.BN})
+SET biz.legalName = b.LegalName,
+    biz.incorporationDate = date(b.IncorporationDate),
+    biz.address = b.Address,
+    biz.taxYear = b.T2Return.TaxYear,
+    biz.line_101 = b.T2Return.Lines["101"],
+    biz.line_300 = b.T2Return.Lines["300"],
+    biz.line_360 = b.T2Return.Lines["360"],
+    biz.line_700 = b.T2Return.Lines["700"];
+
+UNWIND value.businesses AS b
+UNWIND b.ProgramAccounts AS acc
+MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
+SET acct.program = acc.Program, acct.status = acc.Status, acct.registeredDate = date(acc.RegisteredDate)
+WITH b, acc, acct
+MATCH (biz:Business {BN: b.BN})
+MERGE (biz)-[:HAS_ACCOUNT]->(acct);
+
+UNWIND value.ownership AS own
+MATCH (p:Person {SIN: own.SIN})
+MATCH (b:Business {BN: own.BN})
+MERGE (p)-[:OWNS {role: own.Role, since: date(own.Since)}]->(b);
+
