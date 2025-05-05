@@ -1,0 +1,92 @@
+{
+  "people": [
+    {
+      "SIN": "111111111",
+      "Name": "Alice Smith",
+      "DOB": "1980-05-10",
+      "Address": "123 Maple St, Toronto, ON"
+    }
+  ],
+  "businesses": [
+    {
+      "BN": "123456789",
+      "LegalName": "AS Tech Solutions Inc.",
+      "IncorporationDate": "2015-06-01",
+      "Address": "500 King St W, Toronto, ON",
+      "ProgramAccounts": [
+        {
+          "Program": "RC",
+          "AccountNumber": "123456789RC0001",
+          "Status": "Active",
+          "RegisteredDate": "2015-06-01",
+          "TaxReturns": [
+            {
+              "TaxYear": 2022,
+              "Lines": {
+                "101": 320000,
+                "300": 250000,
+                "360": 120000,
+                "700": 17000
+              },
+              "Assessments": [
+                {
+                  "AssessmentDate": "2023-05-10",
+                  "Type": "Initial",
+                  "Round": 0,
+                  "BalanceDue": 300,
+                  "NoticeIssued": true
+                },
+                {
+                  "AssessmentDate": "2023-10-01",
+                  "Type": "Reassessment",
+                  "Round": 1,
+                  "BalanceDue": 800,
+                  "NoticeIssued": true
+                }
+              ]
+            },
+            {
+              "TaxYear": 2023,
+              "Lines": {
+                "101": 350000,
+                "300": 275000,
+                "360": 125000,
+                "700": 18000
+              },
+              "Assessments": [
+                {
+                  "AssessmentDate": "2024-05-10",
+                  "Type": "Initial",
+                  "Round": 0,
+                  "BalanceDue": 0,
+                  "NoticeIssued": true
+                },
+                {
+                  "AssessmentDate": "2024-09-01",
+                  "Type": "Reassessment",
+                  "Round": 1,
+                  "BalanceDue": 1200,
+                  "NoticeIssued": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Program": "RP",
+          "AccountNumber": "123456789RP0001",
+          "Status": "Active",
+          "RegisteredDate": "2016-01-01"
+        }
+      ]
+    }
+  ],
+  "ownership": [
+    {
+      "SIN": "111111111",
+      "BN": "123456789",
+      "Role": "Director",
+      "Since": "2015-06-01"
+    }
+  ]
+}
