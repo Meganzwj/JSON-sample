@@ -1,0 +1,49 @@
+{
+  "people": [
+    {
+      "SIN": "111111111",
+      "Name": "Alice Smith",
+      "DOB": "1980-05-10",
+      "Address": "123 Maple St, Toronto, ON"
+    }
+  ],
+  "businesses": [
+    {
+      "BN": "123456789",
+      "LegalName": "AS Tech Solutions Inc.",
+      "IncorporationDate": "2015-06-01",
+      "Address": "500 King St W, Toronto, ON",
+      "T2Return": {
+        "TaxYear": 2023,
+        "Lines": {
+          "101": 350000,    // Gross revenue
+          "300": 275000,    // Net income/loss before taxes
+          "360": 125000,    // Taxable income
+          "700": 18000      // Federal tax payable
+        }
+      },
+      "ProgramAccounts": [
+        {
+          "Program": "RC",
+          "AccountNumber": "123456789RC0001",
+          "Status": "Active",
+          "RegisteredDate": "2015-06-01"
+        },
+        {
+          "Program": "RP",
+          "AccountNumber": "123456789RP0001",
+          "Status": "Active",
+          "RegisteredDate": "2016-01-01"
+        }
+      ]
+    }
+  ],
+  "ownership": [
+    {
+      "SIN": "111111111",
+      "BN": "123456789",
+      "Role": "Director",
+      "Since": "2015-06-01"
+    }
+  ]
+}
