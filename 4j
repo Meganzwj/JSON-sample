@@ -33,14 +33,18 @@ SET ret.line_101 = r.Lines["101"],
     ret.line_300 = r.Lines["300"],
     ret.line_360 = r.Lines["360"],
     ret.line_700 = r.Lines["700"]
-WITH b, r, ret
+WITH b, r, ret // ← keep 'r' in scope here
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:FILED]->(ret)
-WITH r, ret
+WITH r, ret // ← keep 'r' again for next step
 
-// Load assessments per return
+//Load assessments per return
 UNWIND r.Assessments AS a
-MERGE (assess:Assessment {taxYear: r.TaxYear, date: date(a.AssessmentDate), type: a.Type})
+MERGE (assess:Assessment {
+  taxYear: r.TaxYear,
+  date: date(a.AssessmentDate),
+  type: a.Type
+})
 SET assess.balanceDue = a.BalanceDue,
     assess.noticeIssued = a.NoticeIssued
 MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
