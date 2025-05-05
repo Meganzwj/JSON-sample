@@ -40,12 +40,14 @@
             {
               "AssessmentDate": "2023-05-10",
               "Type": "Initial",
+              "Round": 0,
               "BalanceDue": 300,
               "NoticeIssued": true
             },
             {
               "AssessmentDate": "2023-10-01",
               "Type": "Reassessment",
+              "Round": 1,
               "BalanceDue": 800,
               "NoticeIssued": true
             }
@@ -63,12 +65,14 @@
             {
               "AssessmentDate": "2024-05-10",
               "Type": "Initial",
+              "Round": 0,
               "BalanceDue": 0,
               "NoticeIssued": true
             },
             {
               "AssessmentDate": "2024-09-01",
               "Type": "Reassessment",
+              "Round": 1,
               "BalanceDue": 1200,
               "NoticeIssued": true
             }
