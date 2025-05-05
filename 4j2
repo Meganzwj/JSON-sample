@@ -12,9 +12,10 @@ UNWIND value.businesses AS b
 MERGE (biz:Business {BN: b.BN})
 SET biz.legalName = b.LegalName,
     biz.incorporationDate = date(b.IncorporationDate),
-    biz.address = b.Address;
+    biz.address = b.Address,
+    biz.name = b.BN;  // Display as BN
 
-// Load program accounts and attach tax returns
+// Load program accounts and connect to business
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
@@ -22,41 +23,47 @@ SET acct.program = acc.Program,
     acct.status = acc.Status,
     acct.registeredDate = date(acc.RegisteredDate),
     acct.name = acc.AccountNumber
-WITH b, acc, acct
+WITH b, acc
 MATCH (biz:Business {BN: b.BN})
-MERGE (biz)-[:HAS_ACCOUNT]->(acct)
+MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
-// Now handle tax returns under the program account
-FOREACH (r IN acc.TaxReturns |
-  MERGE (ret:TaxReturn {AccountNumber: acc.AccountNumber, taxYear: r.TaxYear})
-  SET ret.name = toString(r.TaxYear),
-      ret.line_101 = r.Lines["101"],
-      ret.line_300 = r.Lines["300"],
-      ret.line_360 = r.Lines["360"],
-      ret.line_700 = r.Lines["700"]
-  MERGE (acct)-[:FILED]->(ret)
+// Load tax returns and connect to program accounts
+UNWIND value.businesses AS b
+UNWIND b.ProgramAccounts AS acc
+UNWIND acc.TaxReturns AS r
+MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
+MERGE (ret:TaxReturn {AccountNumber: acc.AccountNumber, taxYear: r.TaxYear})
+SET ret.name = toString(r.TaxYear),
+    ret.line_101 = r.Lines["101"],
+    ret.line_300 = r.Lines["300"],
+    ret.line_360 = r.Lines["360"],
+    ret.line_700 = r.Lines["700"]
+MERGE (acct)-[:FILED]->(ret);
 
-  // Handle assessments under the return
-  FOREACH (a IN r.Assessments |
-    WITH ret, a,
-    CASE
-      WHEN a.Type = "Initial" THEN "Initial"
-      ELSE "Reassessment " + toString(a.Round)
-    END AS label
-    MERGE (assess:Assessment {
-      taxYear: r.TaxYear,
-      label: label
-    })
-    SET assess.name = label,
-        assess.date = date(a.AssessmentDate),
-        assess.balanceDue = a.BalanceDue,
-        assess.noticeIssued = a.NoticeIssued
-    MERGE (ret)-[:HAS_ASSESSMENT]->(assess)
-  )
-)
+// Load assessments and connect to tax returns
+UNWIND value.businesses AS b
+UNWIND b.ProgramAccounts AS acc
+UNWIND acc.TaxReturns AS r
+UNWIND r.Assessments AS a
+WITH acc, r, a,
+     CASE WHEN a.Type = "Initial" THEN "Initial"
+          ELSE "Reassessment " + toString(a.Round)
+     END AS label
+MERGE (ret:TaxReturn {AccountNumber: acc.AccountNumber, taxYear: r.TaxYear})
+MERGE (assess:Assessment {
+  taxYear: r.TaxYear,
+  type: label,
+  AccountNumber: acc.AccountNumber
+})
+SET assess.name = label,
+    assess.date = date(a.AssessmentDate),
+    assess.balanceDue = a.BalanceDue,
+    assess.noticeIssued = a.NoticeIssued
+MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
 
-// Load ownership relationships
+// Load ownership
 UNWIND value.ownership AS own
 MATCH (p:Person {SIN: own.SIN})
 MATCH (b:Business {BN: own.BN})
 MERGE (p)-[:OWNS {role: own.Role, since: date(own.Since)}]->(b);
+
