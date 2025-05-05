@@ -23,7 +23,7 @@ SET acct.program = acc.Program,
     acct.status = acc.Status,
     acct.registeredDate = date(acc.RegisteredDate),
     acct.name = acc.AccountNumber
-WITH b, acc
+WITH b, acc WHERE acc.AccountNumber IS NOT NULL
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
