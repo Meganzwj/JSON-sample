@@ -1,21 +1,21 @@
 CALL apoc.load.json("YOUR_URL") YIELD value
 
-// Load people
+// 1. Load People
 UNWIND value.people AS p
 MERGE (person:Person {SIN: p.SIN})
 SET person.name = p.Name,
     person.dob = date(p.DOB),
     person.address = p.Address;
 
-// Load businesses
+// 2. Load Businesses
 UNWIND value.businesses AS b
 MERGE (biz:Business {BN: b.BN})
 SET biz.legalName = b.LegalName,
     biz.incorporationDate = date(b.IncorporationDate),
     biz.address = b.Address,
-    biz.name = b.BN;  // Show BN as label
+    biz.name = b.BN;  // Display BN in graph
 
-// Load ALL program accounts and connect to business (including RP, RC)
+// 3. Load and Link ALL Program Accounts (RC, RP, etc.)
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
@@ -27,7 +27,7 @@ WITH b, acc
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
-// Load tax returns only for RC accounts that have TaxReturns
+// 4. Load TaxReturns (only for accounts with returns, typically RC)
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 WITH acc WHERE acc.TaxReturns IS NOT NULL
@@ -41,7 +41,7 @@ SET ret.name = toString(r.TaxYear),
     ret.line_700 = r.Lines["700"]
 MERGE (acct)-[:FILED]->(ret);
 
-// Load assessments per tax return
+// 5. Load Assessments (for each return)
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 WITH acc WHERE acc.TaxReturns IS NOT NULL
@@ -63,7 +63,7 @@ SET assess.name = label,
     assess.noticeIssued = a.NoticeIssued
 MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
 
-// Load ownership
+// 6. Load Ownership
 UNWIND value.ownership AS own
 MATCH (p:Person {SIN: own.SIN})
 MATCH (b:Business {BN: own.BN})
