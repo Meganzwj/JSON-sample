@@ -25,11 +25,12 @@ WITH b, acc
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
-// Load tax returns and assessments
+// Load tax returns (line numbers now only here)
 UNWIND value.businesses AS b
 UNWIND b.TaxReturns AS r
 MERGE (ret:TaxReturn {BN: b.BN, taxYear: r.TaxYear})
-SET ret.line_101 = r.Lines["101"],
+SET ret.taxYear = r.TaxYear, // for display
+    ret.line_101 = r.Lines["101"],
     ret.line_300 = r.Lines["300"],
     ret.line_360 = r.Lines["360"],
     ret.line_700 = r.Lines["700"]
@@ -40,7 +41,11 @@ WITH r, ret
 
 // Load assessments per return
 UNWIND r.Assessments AS a
-MERGE (assess:Assessment {taxYear: r.TaxYear, date: date(a.AssessmentDate), type: a.Type})
+MERGE (assess:Assessment {
+  taxYear: r.TaxYear,
+  date: date(a.AssessmentDate),
+  type: a.Type
+})
 SET assess.balanceDue = a.BalanceDue,
     assess.noticeIssued = a.NoticeIssued
 MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
