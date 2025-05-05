@@ -1,21 +1,21 @@
 CALL apoc.load.json("YOUR_URL") YIELD value
 
-// 1. Load People
+// 1. People
 UNWIND value.people AS p
 MERGE (person:Person {SIN: p.SIN})
 SET person.name = p.Name,
     person.dob = date(p.DOB),
     person.address = p.Address;
 
-// 2. Load Businesses
+// 2. Businesses
 UNWIND value.businesses AS b
 MERGE (biz:Business {BN: b.BN})
 SET biz.legalName = b.LegalName,
     biz.incorporationDate = date(b.IncorporationDate),
     biz.address = b.Address,
-    biz.name = b.BN;  // Display BN in graph
+    biz.name = b.BN;
 
-// 3. Load and Link ALL Program Accounts (RC, RP, etc.)
+// 3. Program Accounts (ALL: RC + RP etc.)
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
@@ -27,7 +27,7 @@ WITH b, acc
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
-// 4. Load TaxReturns (only for accounts with returns, typically RC)
+// 4. Tax Returns (only if present on account)
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 WITH acc WHERE acc.TaxReturns IS NOT NULL
@@ -41,7 +41,7 @@ SET ret.name = toString(r.TaxYear),
     ret.line_700 = r.Lines["700"]
 MERGE (acct)-[:FILED]->(ret);
 
-// 5. Load Assessments (for each return)
+// 5. Assessments
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 WITH acc WHERE acc.TaxReturns IS NOT NULL
@@ -53,9 +53,9 @@ WITH acc, r, a,
      END AS label
 MERGE (ret:TaxReturn {AccountNumber: acc.AccountNumber, taxYear: r.TaxYear})
 MERGE (assess:Assessment {
+  AccountNumber: acc.AccountNumber,
   taxYear: r.TaxYear,
-  type: label,
-  AccountNumber: acc.AccountNumber
+  type: label
 })
 SET assess.name = label,
     assess.date = date(a.AssessmentDate),
@@ -63,8 +63,9 @@ SET assess.name = label,
     assess.noticeIssued = a.NoticeIssued
 MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
 
-// 6. Load Ownership
+// 6. Ownership
 UNWIND value.ownership AS own
 MATCH (p:Person {SIN: own.SIN})
 MATCH (b:Business {BN: own.BN})
 MERGE (p)-[:OWNS {role: own.Role, since: date(own.Since)}]->(b);
+
