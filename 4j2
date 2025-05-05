@@ -13,9 +13,9 @@ MERGE (biz:Business {BN: b.BN})
 SET biz.legalName = b.LegalName,
     biz.incorporationDate = date(b.IncorporationDate),
     biz.address = b.Address,
-    biz.name = b.BN;  // Display as BN
+    biz.name = b.BN;  // Show BN as label
 
-// Load program accounts and connect to business
+// Load ALL program accounts and connect to business (including RP, RC)
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
@@ -27,9 +27,10 @@ WITH b, acc
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
-// Load tax returns and connect to program accounts
+// Load tax returns only for RC accounts that have TaxReturns
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
+WITH acc WHERE acc.TaxReturns IS NOT NULL
 UNWIND acc.TaxReturns AS r
 MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
 MERGE (ret:TaxReturn {AccountNumber: acc.AccountNumber, taxYear: r.TaxYear})
@@ -40,9 +41,10 @@ SET ret.name = toString(r.TaxYear),
     ret.line_700 = r.Lines["700"]
 MERGE (acct)-[:FILED]->(ret);
 
-// Load assessments and connect to tax returns
+// Load assessments per tax return
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
+WITH acc WHERE acc.TaxReturns IS NOT NULL
 UNWIND acc.TaxReturns AS r
 UNWIND r.Assessments AS a
 WITH acc, r, a,
@@ -66,4 +68,3 @@ UNWIND value.ownership AS own
 MATCH (p:Person {SIN: own.SIN})
 MATCH (b:Business {BN: own.BN})
 MERGE (p)-[:OWNS {role: own.Role, since: date(own.Since)}]->(b);
-
