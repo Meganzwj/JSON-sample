@@ -1,0 +1,52 @@
+CALL apoc.load.json("YOUR_URL") YIELD value
+
+// Load people
+UNWIND value.people AS p
+MERGE (person:Person {SIN: p.SIN})
+SET person.name = p.Name,
+    person.dob = date(p.DOB),
+    person.address = p.Address;
+
+// Load businesses
+UNWIND value.businesses AS b
+MERGE (biz:Business {BN: b.BN})
+SET biz.legalName = b.LegalName,
+    biz.incorporationDate = date(b.IncorporationDate),
+    biz.address = b.Address;
+
+// Load program accounts
+UNWIND value.businesses AS b
+UNWIND b.ProgramAccounts AS acc
+MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
+SET acct.program = acc.Program,
+    acct.status = acc.Status,
+    acct.registeredDate = date(acc.RegisteredDate)
+WITH b, acc
+MATCH (biz:Business {BN: b.BN})
+MERGE (biz)-[:HAS_ACCOUNT]->(acct);
+
+// Load tax returns and assessments
+UNWIND value.businesses AS b
+UNWIND b.TaxReturns AS r
+MERGE (ret:TaxReturn {BN: b.BN, taxYear: r.TaxYear})
+SET ret.line_101 = r.Lines["101"],
+    ret.line_300 = r.Lines["300"],
+    ret.line_360 = r.Lines["360"],
+    ret.line_700 = r.Lines["700"]
+WITH b, r, ret
+MATCH (biz:Business {BN: b.BN})
+MERGE (biz)-[:FILED]->(ret)
+WITH r, ret
+
+// Load assessments per return
+UNWIND r.Assessments AS a
+MERGE (assess:Assessment {taxYear: r.TaxYear, date: date(a.AssessmentDate), type: a.Type})
+SET assess.balanceDue = a.BalanceDue,
+    assess.noticeIssued = a.NoticeIssued
+MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
+
+// Load ownership relationships
+UNWIND value.ownership AS own
+MATCH (p:Person {SIN: own.SIN})
+MATCH (b:Business {BN: own.BN})
+MERGE (p)-[:OWNS {role: own.Role, since: date(own.Since)}]->(b);
