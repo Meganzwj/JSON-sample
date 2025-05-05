@@ -14,22 +14,22 @@ SET biz.legalName = b.LegalName,
     biz.incorporationDate = date(b.IncorporationDate),
     biz.address = b.Address;
 
-// Load program accounts
+// Load program accounts and relationship
 UNWIND value.businesses AS b
 UNWIND b.ProgramAccounts AS acc
 MERGE (acct:ProgramAccount {AccountNumber: acc.AccountNumber})
 SET acct.program = acc.Program,
     acct.status = acc.Status,
     acct.registeredDate = date(acc.RegisteredDate)
-WITH b, acc
+WITH b, acc, acct
 MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:HAS_ACCOUNT]->(acct);
 
-// Load tax returns (line numbers now only here)
+// Load tax returns and display by taxYear
 UNWIND value.businesses AS b
 UNWIND b.TaxReturns AS r
 MERGE (ret:TaxReturn {BN: b.BN, taxYear: r.TaxYear})
-SET ret.taxYear = r.TaxYear, // for display
+SET ret.taxYear = r.TaxYear, // display node label as taxYear
     ret.line_101 = r.Lines["101"],
     ret.line_300 = r.Lines["300"],
     ret.line_360 = r.Lines["360"],
@@ -39,14 +39,19 @@ MATCH (biz:Business {BN: b.BN})
 MERGE (biz)-[:FILED]->(ret)
 WITH r, ret
 
-// Load assessments per return
+// Load assessments with readable labels (Initial, Reassessment 1, etc.)
 UNWIND r.Assessments AS a
+WITH r, ret, a,
+     CASE
+       WHEN a.Type = "Initial" THEN "Initial"
+       ELSE "Reassessment " + toString(a.Round)
+     END AS readableType
 MERGE (assess:Assessment {
   taxYear: r.TaxYear,
-  date: date(a.AssessmentDate),
-  type: a.Type
+  type: readableType
 })
-SET assess.balanceDue = a.BalanceDue,
+SET assess.date = date(a.AssessmentDate),
+    assess.balanceDue = a.BalanceDue,
     assess.noticeIssued = a.NoticeIssued
 MERGE (ret)-[:HAS_ASSESSMENT]->(assess);
 
