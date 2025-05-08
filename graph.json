@@ -1,0 +1,184 @@
+{
+  "graph": {
+    "nodes": [
+      {
+        "id": 0,
+        "labels": ["Person"],
+        "properties": {
+          "SIN":    "111111111",
+          "Name":   "Alice Smith",
+          "DOB":    "1980-05-10",
+          "Address": "123 Maple St, Toronto, ON"
+        }
+      },
+      {
+        "id": 1,
+        "labels": ["Business"],
+        "properties": {
+          "BN":               "123456789",
+          "LegalName":        "AS Tech Solutions Inc.",
+          "IncorporationDate": "2015-06-01",
+          "Address":          "500 King St W, Toronto, ON"
+        }
+      },
+      {
+        "id": 2,
+        "labels": ["ProgramAccount"],
+        "properties": {
+          "Program":       "RC",
+          "AccountNumber": "123456789RC0001",
+          "Status":        "Active",
+          "RegisteredDate":"2015-06-01"
+        }
+      },
+      {
+        "id": 3,
+        "labels": ["ProgramAccount"],
+        "properties": {
+          "Program":       "RP",
+          "AccountNumber": "123456789RP0001",
+          "Status":        "Active",
+          "RegisteredDate":"2016-01-01"
+        }
+      },
+      {
+        "id": 4,
+        "labels": ["TaxReturn"],
+        "properties": {
+          "TaxYear": 2022,
+          "Lines": {
+            "101": 320000,
+            "300": 250000,
+            "360": 120000,
+            "700":  17000
+          }
+        }
+      },
+      {
+        "id": 5,
+        "labels": ["Assessment"],
+        "properties": {
+          "AssessmentDate": "2023-05-10",
+          "Type":           "Initial",
+          "Round":          0,
+          "BalanceDue":     300,
+          "NoticeIssued":   true
+        }
+      },
+      {
+        "id": 6,
+        "labels": ["Assessment"],
+        "properties": {
+          "AssessmentDate": "2023-10-01",
+          "Type":           "Reassessment",
+          "Round":          1,
+          "BalanceDue":     800,
+          "NoticeIssued":   true
+        }
+      },
+      {
+        "id": 7,
+        "labels": ["TaxReturn"],
+        "properties": {
+          "TaxYear": 2023,
+          "Lines": {
+            "101": 350000,
+            "300": 275000,
+            "360": 125000,
+            "700":  18000
+          }
+        }
+      },
+      {
+        "id": 8,
+        "labels": ["Assessment"],
+        "properties": {
+          "AssessmentDate": "2024-05-10",
+          "Type":           "Initial",
+          "Round":          0,
+          "BalanceDue":     0,
+          "NoticeIssued":   true
+        }
+      },
+      {
+        "id": 9,
+        "labels": ["Assessment"],
+        "properties": {
+          "AssessmentDate": "2024-09-01",
+          "Type":           "Reassessment",
+          "Round":          1,
+          "BalanceDue":     1200,
+          "NoticeIssued":   true
+        }
+      }
+    ],
+    "relationships": [
+      {
+        "id": 0,
+        "type": "OWNS",
+        "start": 0,
+        "end":   1,
+        "properties": {
+          "Role":  "Director",
+          "Since": "2015-06-01"
+        }
+      },
+      {
+        "id": 1,
+        "type": "HAS_ACCOUNT",
+        "start": 1,
+        "end":   2,
+        "properties": {}
+      },
+      {
+        "id": 2,
+        "type": "HAS_ACCOUNT",
+        "start": 1,
+        "end":   3,
+        "properties": {}
+      },
+      {
+        "id": 3,
+        "type": "HAS_TAX_RETURN",
+        "start": 2,
+        "end":   4,
+        "properties": {}
+      },
+      {
+        "id": 4,
+        "type": "HAS_ASSESSMENT",
+        "start": 4,
+        "end":   5,
+        "properties": {}
+      },
+      {
+        "id": 5,
+        "type": "HAS_ASSESSMENT",
+        "start": 4,
+        "end":   6,
+        "properties": {}
+      },
+      {
+        "id": 6,
+        "type": "HAS_TAX_RETURN",
+        "start": 2,
+        "end":   7,
+        "properties": {}
+      },
+      {
+        "id": 7,
+        "type": "HAS_ASSESSMENT",
+        "start": 7,
+        "end":   8,
+        "properties": {}
+      },
+      {
+        "id": 8,
+        "type": "HAS_ASSESSMENT",
+        "start": 7,
+        "end":   9,
+        "properties": {}
+      }
+    ]
+  }
+}
